@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>css-block-layout</title>
+  <style>
+  body{
+    margin:0;
+  }
+  header{
+  min-width:600px;
+  color:white;
+  background-color: #000;
+  white-space:nowrap;
+}
+p{
+  width:600px;
+  margin:0 auto;
+}
+main{
+  width:600px;
+  margin:15px auto;
+}
+main>p{
+  margin-bottom:16px;
+}
+.grid{
+  width:174px;
+  height:34px;
+  border:3px solid;
+  margin:15px 30px;
+  background-color:pink;
+  text-align:center;
+  line-height:34px;
+}
+.grid:hover{
+  background-color: red;
+}
+.first{
+  margin-left:0px;
+}
+.second{
+  margin-left:210px;
+  margin-top:-55px;
+}
+.third{
+  margin-left:420px;
+  margin-top:-55px;
+  margin-right:0px;
+}
+ul{
+  list-style:none;
+  padding-left:0;
+}
+li:nth-child(-n+4){
+  border-bottom:1px dotted
+}
+footer{
+  min-width:300px;
+  text-align:center;
+  background-color: violet;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <p>
+    hello world 请调整浏览器窗口大小查看效果
+    </p>
+  </header>
+  <main>
+    <p>页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px</p>
+    <div class="grid first">宽180高40(包含边框)</div>
+    <div class="grid second">产品</div>
+    <div class="grid third">产品</div>
+    <div class="grid first">水平间隙30px</div>
+    <div class="grid second">产品</div>
+    <div class="grid third">产品</div>
+    <div class="grid first">垂直间隙15px</div>
+    <div class="grid second">产品</div>
+    <div class="grid third">产品</div>
+    <div class="grid first">边框宽度3px</div>
+    <div class="grid second">产品</div>
+    <div class="grid third">产品</div>
+    <ul>
+      <li>link</li>
+      <li>link</li>
+      <li>link</li>
+      <li>link</li>
+      <li>link</li>
+    </ul>
+  </main>
+  <footer>
+    &copy版权所有<br>
+本页所有布局均使用块元素
+  </footer>
+</body>
+</html>
