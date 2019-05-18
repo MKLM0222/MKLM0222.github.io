@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>list</title>
+  <style>
+  ul{
+  list-style:none;
+  padding:0;
+  background-color: #d6dbe0;
+}
+.mainList{
+  position:relative;
+}
+li:hover{
+  background-color:#d6dbc0;
+}
+.mainList>li{
+  display:inline-block;
+  width:90px;
+  height:30px;
+  text-align:center;
+  line-height:30px;
+}
+.mainList>li:first-child:hover .fileList{
+ display:block;
+}
+.mainList>li:nth-child(2):hover .editList{
+  display:block;
+}
+.fileList,.editList{
+  position:absolute;
+  display:none;
+
+}
+.fileList>li,.editList>li{
+  width:90px;
+  height:30px;
+  text-align:left;
+}
+.filesecondList{
+  position:absolute;
+  left:90px;
+  top:90px;
+  display:none;
+}
+.editsecondList{
+  position:absolute;
+  left:90px;
+  top:30px;
+  display:none;
+}
+.hasChild::after,.hasChild2::after{
+  content:'>';
+  position:absolute;
+  right:5px;
+}
+.hasChild:hover .filesecondList,.hasChild2:hover .editsecondList{
+  display:block;
+}
+.filesecondList>li,.editsecondList>li{
+  width:90px;
+  height:30px;
+}
+  </style>
+</head>
+<body>
+<ul class="mainList">
+  <li>文件
+  <ul class="fileList">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li class="hasChild">4
+        <ul class="filesecondList">
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ul>
+    </li>
+      <li>5</li>
+    </ul>
+  </li>
+  <li>编辑
+    <ul class="editList">
+      <li>1</li>
+      <li class="hasChild2">2
+         <ul class="editsecondList">
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ul>
+      </li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+    </ul>
+  </li>
+  <li>选择</li>
+  <li>查看</li>
+</ul>
+ 
+</body>
+</html>
