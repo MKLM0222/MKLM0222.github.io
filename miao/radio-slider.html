@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>小米轮播图</title>
+  <style>
+    .slider{
+      width:700px;
+      height:300px;
+      position:relative;
+    }
+    input{
+      display:inline-block;
+      /*position:absolute;
+      top:100%;*/
+    }
+    img{
+      height:100%;
+      width:100%;
+      position:absolute;
+      top:25px;
+      opacity:0;
+    }
+    label{
+      display:none;
+      width:20px;
+      height:20px;
+      border-radius:99px;
+      border:1px solid;
+      cursor:pointer;
+    }
+    input[id="1"]:checked~label.first,input[id="2"]:checked~label.second, input[id="3"]:checked~label.third,
+    input[id="4"]:checked~label.fourth,input[id="5"]:checked~label.fifth{
+      display:inline-block;
+    }
+    .left{
+      position:absolute;
+      top:110%;
+      left:0;
+    }
+    .right{
+      position:absolute;
+      top:110%;
+      right:0;
+    }
+    /*input[id="2"]:checked,.controller>label:nth-child(3),.controller>label:nth-child(4){
+      display:inline-block;
+    }*/
+    input:checked+img{
+      display:block;
+      opacity:1;
+      transition:1s;
+    }
+  </style>
+</head>
+<body>
+<div class="slider">
+<input checked type="radio" name="image" id="1">
+<img src="https://i1.mifile.cn/a4/xmad_15581080431577_cYzrx.jpg" alt="">
+<label class="first left" for="5"></label>
+<label class="first right" for="2"></label>
+<input type="radio" name="image" id="2">
+<img src="https://i1.mifile.cn/a4/xmad_15581082062713_erJQn.jpg" alt="">
+<label class="second left" for="1"></label>
+<label class="second right" for="3"></label>
+<input type="radio" name="image" id="3">
+<img src="https://i1.mifile.cn/a4/xmad_15564338720939_heanO.jpg" alt="">
+<label class="third left" for="2"></label>
+<label class="third right" for="4"></label>
+<input type="radio" name="image" id="4">
+<img src="https://i1.mifile.cn/a4/xmad_15548066625675_jhzWS.jpg" alt="">
+<label class="fourth left" for="3"></label>
+<label class="fourth right" for="5"></label>
+<input type="radio" name="image" id="5">
+<img src="https://i1.mifile.cn/a4/xmad_15476942090876_owaIH.jpg" alt="">
+<label class="fifth left" for="4"></label>
+<label class="fifth right" for="1"></label>
+</div>
+
+</body>
+</html>
