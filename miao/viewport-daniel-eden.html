@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>viewport-daniel-eden</title>
+  <style>
+    html,body{
+      width:100%;
+      height:100%;
+      background-color: #000;
+      margin:0;
+      color:#fff;
+    }
+    body{
+      border:1px solid transparent;
+      position:relative;
+    }
+    .container{
+      width:100%;
+      margin:12.5vw 0;
+      background-color:#fff;
+      position:absolute;
+      top:0;
+      bottom:0;
+    }
+    img{
+      width:31vw;
+      height:47vw;
+      display:block;
+    }
+    .header{
+      xbackground-color:pink;
+      margin:0 2.5vw;
+      height:5.625vw;
+      border-bottom:1px solid #000;
+      overflow: hidden;
+    }
+    .header>.title{
+      float:left;
+      color:#000;
+      font-size:4vw;
+    }
+    .header>.buttons{
+      float:right;
+    }
+    .header>.buttons>a{
+      color:#000;
+      text-decoration:none;
+    }
+    img:nth-child(2){
+      position:absolute;
+      top:11vw;
+      left:16vw;
+    }
+    img:nth-child(3){
+      position:absolute;
+      top:44vw;
+      right:16.25vw;
+    }
+    img:nth-child(4){
+      position:absolute;
+      top:27.25vw;
+      left:32.25vw;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+   <div class="header">
+     <div class="title">
+      Daniel Eden,Designer
+     </div>
+     <div class="buttons">
+       <a href="">Blog</a>
+       <a href="">PortFolio</a>
+       <a href="">Library</a>
+     </div>
+   </div>
+     <img src="https://daneden.imgix.net/2018/10/portrait.jpg?auto=format&fit=crop&ixlib=react-8.6.1&w=1074" alt="">
+     <img src="https://daneden.imgix.net/2019/04/home.jpeg?auto=format&fit=crop&ixlib=react-8.6.1&w=1074" alt="">
+     <img src="https://daneden.imgix.net/2018/10/GenArt.png?auto=format&fit=crop&ixlib=react-8.6.1&w=1074" alt="">
+   </div>
+  </div>
+</body>
+</html>
