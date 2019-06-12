@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>oald-layout-flex</title>
+  <style>
+    body,html{
+      width:100%;
+      height:100%;
+      margin:0;
+    }
+    body{
+      display:flex;
+    }
+    .a{
+      width:20%;
+      background-color: pink;
+      height:100%;
+    }
+    .main{
+      width:40%;
+      height:100%;
+      display:flex;
+      flex-direction: column;
+    }
+    .header{
+      height:70px;
+      background-color: purple;
+    }
+    main{
+      height:100%;
+      background-color:violet;
+    }
+    .b{
+      width:20%;
+      background-color: tan;
+    }
+    .c{
+      width:20%;
+      background-color: skyblue;
+    }
+  </style>
+</head>
+<body>
+  <aside class="a"></aside>
+  <div class="main">
+    <div class="header"></div>
+    <main></main>
+  </div>
+  <aside class="b"></aside>
+  <aside class="c"></aside>
+</body>
+</html>
