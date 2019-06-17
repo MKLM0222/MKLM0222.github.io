@@ -417,5 +417,53 @@ if(a+b>c&&a+c>b&&b+c>a){
   console.log("no")
 }
 </script>
+<script id="ch0104/17">
+/*一行，如果公元a年是闰年输出Y，否则输出N*/
+var n=+prompt("n")
+if((n%400==0)||(n%4==0&&n%100==0)){
+  console.log("Y")
+}else{
+  console.log("N")
+}
+</script>
+<script id="ch0104/18">
+/*有一个正方形，四个角的坐标（x,y)分别是（1，-1），（1，1），（-1，-1），（-1，1），x是横轴，y是纵轴。写一个程序，判断一个给定的点是否在这个正方形内（包括正方形边界）。*/
+var x=+prompt("x")
+var y=+prompt("y")
+if(x>=-1&&x<=1&&y>=-1&&y<=1){
+  console.log("yes")
+}else{
+  console.log("no")
+}
+</script>
+<script id="ch0104/19">
+/*一个最简单的计算器，支持+, -, *, / 四种运算。仅需考虑输入输出为整数的情况，数据和运算结果不会超过int表示的范围。*/
+var x=+prompt("x")
+var y=+prompt("y")
+var operater=prompt("operater")
+if(operater!="+"&&operater!="-"&&operater!="*"&&operater!="/"){
+  console.log("Invalid operator!")
+}else if(operater=="+"){
+  console.log(x+y)
+}else if(operater=="-"){
+  console.log(x-y)
+}else if(operater=="*"){
+  console.log(x*y)
+}else if(operater=="/"){
+  if(y==0){
+    console.log("Divided by zero!")
+  }else{
+    console.log(x/y)
+  }
+}
+</script>
+<script id="ch0104/20">
 
+</script>
+<script id="ch0104/21">
+var n=+prompt("n")
+var x=+prompt("x")
+var y=+prompt("y")
+console.log(n-Math.ceil(y/x))
+</script>
 
