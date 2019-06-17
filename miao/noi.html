@@ -1,0 +1,421 @@
+
+<script id="ch0103/01">
+//1.3编程基础之算术表达式与顺序执行
+//A+B问题
+//给定两个整数A和B，输出A+B的值。保证A、B及结果均在整型范围内。
+var A=+prompt("输入A")
+var B=+prompt("输入B")
+console.log(A+B)
+</script>
+<script id="ch0103/02">
+//给定3个整数a、b、c，计算表达式(a+b)*c的值。
+var A=+prompt('输入A')
+var B=+prompt('输入B')
+var C=+prompt('输入C')
+if(A>-10000&&A<10000&&B>-10000&&B<10000&&C>-10000&&C<100000)
+  console.log((A+B)*C)
+</script>
+<script id="ch0103/03">
+//给定3个整数a、b、c，计算表达式(a+b)/c的值，/是整除运算。
+var A=+prompt('输入A')
+var B=+prompt('输入B')
+var C=+prompt('输入C')
+if(A>-10000&&A<10000&&B>-10000&&B<10000&&C>-10000&&C<100000)
+  console.log(Math.floor((A+B)/C))
+</script>
+<script id="ch0103/04">
+//给定被除数和除数，求整数商及余数。
+var a=+prompt('输入被除数')
+var b=+prompt('输入除数')
+var res=(a/b)|0;
+var mod=a%b
+console.log(res,mod)
+</script>
+<script id="ch0103/05">
+//两个整数a和b分别作为分子和分母，既分数 a/b ，求它的浮点数值（双精度浮点数，保留小数点后9位）
+var a=+prompt("输入分子")
+var b=+prompt("输入分母")
+console.log((a/b).toFixed(9))
+</script>
+<script id="ch0103/06">
+/*描述
+甲流并不可怕，在中国，它的死亡率并不是很高。请根据截止2009年12月22日各省报告的甲流确诊数和死亡数，计算甲流在各省的死亡率。
+
+输入
+输入仅一行，有两个整数，第一个为确诊数，第二个为死亡数。
+输出
+输出仅一行，甲流死亡率，以百分数形式输出，精确到小数点后3位。*/
+var a=+prompt("确诊数");
+var b=+prompt("死亡数");
+console.log((b/a*100).toFixed(3)+"%")
+</script>
+<script id="ch0103/07">
+/*对于多项式f(x) = ax3 + bx2 + cx + d 和给定的a, b, c, d, x，计算f(x)的值。
+
+输入
+输入仅一行，包含5个实数，分别是x，及参数a、b、c、d的值，每个数都是绝对值不超过100的双精度浮点数。数与数之间以一个空格分开。
+输出
+输出一个实数，即f(x)的值，保留到小数点后7位。
+*/
+var x=+prompt("x");
+var a=+prompt("a");
+var b=+prompt("b");
+var c=+prompt("c");
+var d=+prompt("d");
+var res=a*(x*x*x)+b*(x*x)+c*x+d
+console.log(res.toFixed(7));
+</script>
+<script id="ch0103/08">
+/*描述
+利用公式 C = 5 * (F-32) / 9 （其中C表示摄氏温度，F表示华氏温度） 进行计算转化。
+
+输入
+输入一行，包含一个实数f，表示华氏温度。（f >= -459.67）
+输出
+输出一行，包含一个实数，表示对应的摄氏温度，要求精确到小数点后5位*/
+
+var f=+prompt("f");
+var res=5*(f-32)/9
+console.log(res.toFixed(5));
+</script>
+<script id="ch0103/09">
+/*描述
+给出圆的半径，求圆的直径、周长和面积。
+
+输入
+输入包含一个实数r（0 < r <= 10,000），表示圆的半径。
+输出
+输出一行，包含三个数，分别表示圆的直径、周长、面积，数与数之间以一个空格分开，每个数保留小数点后4位。*/
+
+var r=+prompt("r");
+var pi=3.14159;
+var d=(2*r).toFixed(4);
+var l=(2*pi*r).toFixed(4);
+var s=(pi*r*r).toFixed(4);
+console.log(d,l,s)
+</script>
+<script id="ch0103/10">
+/*对于阻值为r1和r2的电阻，其并联电阻阻值公式计算如下：
+
+R = 1/(1/r1 + 1/r2)*/
+
+var r1=+prompt("输入r1")
+var r2=+prompt("r2")
+var res=1/(1/r1+1/r2)
+console.log(res.toFixed(2))
+</script>
+<script id="ch0103/11">
+/*计算两个双精度浮点数a和b的相除的余数，a和b都是正数的。这里余数（r）的定义是：a = k * b + r，其中 k是整数， 0 <= r < b。*/
+
+var a=+prompt("a")
+var b=+prompt("b")
+var k=(a/b)|0;
+var r=a-k*b
+console.log(r.toFixed(4))
+</script>
+<script id="ch0103/12">
+/*对于半径为r的球，其体积的计算公式为V=4/3*πr3，这里取π= 3.14。
+
+现给定r，求V。*/
+
+var r=+prompt("r");
+var pi=3.14;
+var V=4/3*pi*r*r*r
+console.log(V.toFixed(2))
+</script>
+<script id="ch0103/13">
+/*将一个三位数反向输出。*/
+var n=+prompt("n");
+var a=((n/100)|0).toString();
+if(n%100>10){
+  b=((n%100/10)|0).toString();
+}else{
+  b="0"
+}
+c=((n%100)%10).toString();
+res=c+b+a;
+console.log(res)
+</script>
+<script id="ch0103/14">
+/*描述
+一只大象口渴了，要喝20升水才能解渴，但现在只有一个深h厘米，底面半径为r厘米的小圆桶(h和r都是整数)。问大象至少要喝多少桶水才会解渴。
+
+输入
+输入有一行：包行两个整数，以一个空格分开，分别表示小圆桶的深h和底面半径r，单位都是厘米。
+输出
+输出一行，包含一个整数，表示大象至少要喝水的桶数。*/
+var pi=3.14159;
+var h=+prompt("h");
+var r=+prompt("r");
+var V=pi*r*r*h;
+var res=Math.ceil(20000/V);
+console.log(res);
+</script>
+<script id="ch0103/15">
+/*你买了一箱n个苹果，很不幸的是买完时箱子里混进了一条虫子。虫子每x小时能吃掉一个苹果，假设虫子在吃完一个苹果之前不会吃另一个，那么经过y小时你还有多少个完整的苹果？*/
+var  n=+prompt("n")
+var  x=+prompt("x")
+var  y=+prompt("y")
+var res=n-y/x
+console.log(res|0)
+</script>
+<script id="ch0103/16">
+/*已知线段的两个端点的坐标A（Xa,Ya），B（Xb，Yb），求线段AB的长度。*/
+var xa=+prompt("xa")
+var ya=+prompt("ya")
+var xb=+prompt("xb")
+var yb=+prompt("yb")
+var res=Math.sqrt((xb-xa)*(xb-xa)+(yb-ya)*(yb-ya))
+console.log(res.toFixed(3))
+</script>
+<script id="ch0103/17">
+//平面上有一个三角形，它的三个顶点坐标分别为(x1, y1), (x2, y2), (x3, y3)，那么请问这个三角形的面积是多少。
+var x1=+prompt("x1")
+var y1=+prompt("y1")
+var x2=+prompt("x2")
+var y2=+prompt("y2")
+var x3=+prompt("x3")
+var y3=+prompt("y3")
+var S=1/2*((x1*y2-x2*y1)+(x2*y3-x3*y2)+(x3*y1-x1*y3))
+var res=Math.abs(S).toFixed(2)
+console.log(res)
+</script>
+<script id="ch0103/18">
+//给出一个等差数列的前两项a1，a2，求第n项是多少。
+var a1=+prompt("a1")
+var a2=+prompt("a2")
+var n=+prompt("n")
+var res=a1+(a2-a1)*(n-1)
+console.log(res)
+</script>
+<script id="ch0103/19">
+var a=+prompt("A")
+var b=+prompt("B")
+if(1<=a<=50000&&1<=b<=50000)
+ console.log(a*b)
+</script>
+<script id="ch0103/20">
+var n=+prompt("n")
+if(0<=n&&n<31)
+  console.log(2**n)
+</script>
+<script id="ch0104/01">
+/*描述
+给定一个整数N，判断其正负。
+
+
+
+输入
+一个整数N(-109 <= N <= 109)
+输出
+如果N > 0, 输出positive;
+如果N = 0, 输出zero;
+如果N < 0, 输出negative*/
+var n=+prompt("n")
+if(n>=10**-9&&n<=10**9){
+  if(n>0){
+    console.log("positive")
+  }else if(N==0){
+    console.log("zero")
+  }else if(N<0){
+    console.log("negative")
+  }
+}
+</script>
+<script id="ch0104/02">
+/*描述
+输入一个浮点数，输出这个浮点数的绝对值。
+
+输入
+输入一个浮点数，其绝对值不超过10000。
+输出
+输出这个浮点数的绝对值，保留到小数点后两位。
+*/
+var n=+prompt("n")
+if(n>=-10000&&n<=10000){
+  console.log(Math.abs(n).toFixed(2))
+}
+</script>
+<script id="ch0104/03">
+/*描述给定一个整数，判断该数是奇数还是偶数。*/
+var n=+prompt("n")
+if(n%2==0){
+  console.log("even")
+}else{
+  console.log("odd")
+}
+</script>
+<script id="ch0104/04">
+/*描述
+任意输入一个字符，判断其ASCII是否是奇数，若是，输出YES，否则，输出NO 
+例如，字符A的ASCII值是65，则输出YES，若输入字符B(ASCII值是66)，则输出NO
+*/
+ var n=+prompt("n")
+ var code=n.charCodeAt(0)
+ if(code%2==0){
+   console.log("YES")
+ }else{
+   console.log("NO")
+ }
+</script>
+<script id="ch0104/05">
+/*描述
+输入两个整数，比较它们的大小。*/
+var x=+prompt("x")
+var y=+prompt("y")
+if(x>y){
+  console.log(">")
+}else if(x==y){
+  console.log("=")
+}else{
+  console.log("<")
+}
+</script>
+<script id="ch0104/06">
+/*判断一个正整数是否是两位数（即大于等于10且小于等于99）。*/
+var x=+prompt("x")
+if(x>=10&&x<=99){
+  console.log(1)
+}else{
+  console.log(0)
+}
+</script>
+<script id="ch0104/07">
+/*某饮料公司最近推出了一个“收集瓶盖赢大奖”的活动：如果你拥有10个印有“幸运”、或20个印有“鼓励”的瓶盖，就可以兑换一个神秘大奖。
+
+现分别给出你拥有的印有“幸运”和“鼓励”的瓶盖数，判断是否可以去兑换大奖。*/
+var lucky=+prompt("lucky")
+var encor=+prompt("encor")
+if(lucky>10||encor>20){
+  console.log(1)
+}else{
+  console.log(0)
+}
+</script>
+<script id="ch0104/08">
+/*判断一个数n 能否同时被3和5整除*/
+var n=+prompt("n")
+if(n%3==0&&n%5==0){
+  console.log("YES")
+}else{
+  console.log("NO")
+}
+</script>
+<script id="ch0104/09">
+/*给定一个整数，判断它能否被3，5，7整除，并输出以下信息：
+1、能同时被3，5，7整除（直接输出3 5 7，每个数中间一个空格）；
+2、只能被其中两个数整除（输出两个数，小的在前，大的在后。例如：3 5或者 3 7或者5 7,中间用空格分隔）；
+3、只能被其中一个数整除（输出这个除数）；
+4、不能被任何数整除，输出小写字符‘n’,不包括单引号。*/
+var n=+prompt("n")
+if(n%3==0&&n%5==0&&n%7==0){
+  console.log(3,5,7)
+}else if(n%3==0&&n%5==0){
+  console.log(3,5)
+}else if(n%3==0&&n%7==0){
+  console.log(3,7)
+}else if(n%5==0&&n%7==0){
+  console.log(5,7)
+}else if(n%3==0){
+  console.log(3)
+}else if(n%5==0){
+  console.log(5)
+}else if(n%7==0){
+  console.log(7)
+}else{
+  console.log("n")
+}
+</script>
+<script id="ch0104/10">
+/*给出一名学生的语文和数学成绩，判断他是否恰好有一门课不及格（成绩小于60分）。*/
+var fir=+prompt("first")
+var sec=+prompt("second")
+if(fir<=60^sec<=60){
+  console.log(1)
+}else{
+  console.log(0)
+}
+</script>
+<script id="ch0104/11">
+/*晶晶的朋友贝贝约晶晶下周一起去看展览，但晶晶每周的1、3、5有课必须上课，请帮晶晶判断她能否接受贝贝的邀请，如果能输出YES；如果不能则输出NO。*/
+var n=+prompt("n")
+if(n%2==0||n==7){
+  console.log("YES")
+}else{
+  console.log("NO")
+}
+</script>
+<script id="ch0104/12">
+/*在北大校园里,没有自行车,上课办事会很不方便.但实际上,并非去办任何事情都是骑车快,因为骑车总要找车、开锁、停车、锁车等,这要耽误一些时间.假设找到自行车,开锁并车上自行车的时间为27秒;停车锁车的时间为23秒;步行每秒行走1.2米,骑车每秒行走3.0米。请判断走不同的距离去办事,是骑车快还是走路快。*/
+var dist=+prompt("distance")
+var bike=27+dist/3+23
+var walk=dist/1.2
+if(bike>walk){
+  console.log("Walk")
+}else{
+  console.log("Bike")
+}
+</script>
+<script id="ch0104/13">
+/*编写程序，计算下列分段函数y=f(x)的值。
+
+y=-x+2.5; 0 <= x < 5
+
+y=2-1.5(x-3)(x-3); 5 <= x < 10
+
+y=x/2-1.5; 10 <= x < 20*/
+var x=+prompt("x")
+var y
+if(x>=0&&x<5){
+  y=-x+2.5
+}else if(x>=5&&x<10){
+  y=2-1.5*(x-3)*(x-3)
+}else if(x>=10&&x<20){
+  y=x/2-1.5
+}
+console.log(y.toFixed(3))
+</script>
+<script id="ch0104/14">
+/*根据邮件的重量和用户是否选择加急计算邮费。计算规则：重量在1000克以内(包括1000克), 基本费8元。超过1000克的部分，每500克加收超重费4元，不足500克部分按500克计算；如果用户选择加急，多收5元。*/
+var w=+prompt("w")
+var quick=prompt("quick")
+if(w<=1000){
+  if(quick=="y"){
+    console.log(13)
+  }else{
+    console.log(8)
+  }
+}else{
+  if(quick=="y"){
+    console.log(Math.ceil((w-1000)/500)*4+8+5)
+  }else{
+    console.log(Math.ceil((w-1000)/500)*4+8)
+  }
+}
+</script>
+<script id="ch0104/15">
+/*输入为一行，包含三个整数，数与数之间以一个空格分开。*/
+var a=+prompt("a")
+var b=+prompt("b")
+var c=+prompt("c")
+if(a>b&&a>c){
+  console.log(a)
+}else if(b>a&&b>c){
+  console.log(b)
+}else if(c>a&&c>b){
+  console.log(c)
+}
+</script>
+<script id="ch0104/16">
+/*给定三个正整数，分别表示三条线段的长度，判断这三条线段能否构成一个三角形。*/
+var a=+prompt("a")
+var b=+prompt("b")
+var c=+prompt("c")
+if(a+b>c&&a+c>b&&b+c>a){
+  console.log("yes")
+}else{
+  console.log("no")
+}
+</script>
+
+
