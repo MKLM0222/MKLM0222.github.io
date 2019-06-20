@@ -250,7 +250,7 @@ if(n%2==0){
 任意输入一个字符，判断其ASCII是否是奇数，若是，输出YES，否则，输出NO 
 例如，字符A的ASCII值是65，则输出YES，若输入字符B(ASCII值是66)，则输出NO
 */
- var n=+prompt("n")
+ var n=prompt("n")
  var code=n.charCodeAt(0)
  if(code%2==0){
    console.log("YES")
@@ -466,4 +466,876 @@ var x=+prompt("x")
 var y=+prompt("y")
 console.log(n-Math.ceil(y/x))
 </script>
+<script id="ch0105/01">
+/*班上有学生若干名，给出每名学生的年龄（整数），求班上所有学生的平均年龄，保留到小数点后两位。*/
+var n=+prompt("n")
+var count=0
+for(var i=0;i<n;i++){
+  var score=+prompt("score")
+  count+=score
+}
+console.log((count/n).toFixed(2))
+</script>
+<script id="ch0105/02">
+/*Larry今年毕业并找到了一份工作。他赚很多钱，但似乎总是不够。Larry认为他需要控制他的投资以解决自己的财务问题。Larry拿到了自己的银行账户详单，想看看自己有多少钱。请帮助Larry写一个程序，通过过去12个月中每月的月末结余，计算平均结余。*/
+var count=0
+for(var i=0;i<12;i++){
+   count+=+prompt("month")
+}
+console.log("$"+(count/12).toFixed(2))
+</script>
+<script id="ch0105/03">
+/*给出一组样本数据，计算其均值。*/
+var n=+prompt("n")
+var count=0;
+for(var i=0;i<n;i++){
+  count+=+prompt("m")
+}
+console.log((count/n).toFixed(4))
+</script>
+<script id="ch0105/04">
+/*读入n（1 <= n <= 10000）个整数，求它们的和与均值。*/
+var n=+prompt("n")
+var count=0;
+for(var i=0;i<n;i++){
+  count+=+prompt("m")
+}
+var avr=(count/n).toFixed(5);
+console.log(count,avr)
+</script>
+<script id="ch0105/05">
+/*输入
+输入两行，第一行为整数n（1 <= n < 100），表示参加这次考试的人数.第二行是这n个学生的成绩，相邻两个数之间用单个空格隔开。所有成绩均为0到100之间的整数。
+输出
+输出一个整数，即最高的成绩。*/
+var n=+prompt("n")
+var max=0
+for(var i=0;i<n;i++){
+  var m=+prompt("m")
+  if(m>max){
+    max=m
+  }
+}
+console.log(max)
+</script>
+<script id="ch0105/06">
+/*给定一个长度为n的非负整数序列，请计算序列的最大跨度值（最大跨度值 = 最大值减去最小值）。 */
+var n=+prompt("n")
+var m=+prompt("m")
+var max=m,min=m
+for(var i=1;i<n;i++){
+  var m=+prompt("m")
+  if(m>max){
+    max=m
+  }else if(m<min){
+    min=m
+  }
+}
+console.log(max-min)
+</script>
+<script id="ch0105/07">
+/*输入n＋1行，第1行是A国参与决赛项目的天数n，其后n行，每一行是该国某一天获得的金、银、铜牌数目，以一个空格分开。*/
+var n=+prompt("n")
+var count=0,countg=0,counts=0,countb=0;
+for(var i=0;i<n;i++){
+  countg+=+prompt("gold")
+  counts+=+prompt("silver")
+  countb+=+prompt("bronde")
+}
+count=countg+counts+countb
+console.log(countg,counts,countb,count)
+</script>
+<script id="ch0105/08">
+/*在欧几里德几何中，n边形的内角和是(n-2)*180°。已知其中(n-1)个内角的度数，就能计算出剩下的一个未知内角的度数。请编写一个程序，来解决这个问题。
 
+输入
+第1行只有一个整数n(2第2行有(n-1)个正整数，是每个已知内角的度数。相邻两个整数之间用单个空格隔开。
+数据保证给定多边形合法。*/
+var n=+prompt("n")
+var res=(n-2)*180
+for(var i=0;i<n-1;i++){
+  var m=+prompt("m")
+  res=res-m
+}
+console.log(res)
+</script>
+<script id="ch0105/09">
+//计算非负整数 m 到 n（包括m 和 n ）之间的所有奇数的和，其中，m 不大于 n，且n 不大于300。例如 m=3, n=12, 其和则为：3+5+7+9+11=35。
+var m=+prompt("m")
+var n=+prompt("n")
+var count=0;
+for(var i=m;i<=n;i++){
+  if(i%2!=0){
+    count+=i
+  }
+}
+console.log(count)
+</script>
+<script id="ch0105/10">
+//将正整数 m 和 n 之间（包括 m 和 n）能被 17 整除的数累加。其中，0 < m < n < 1000。
+var m=+prompt("m")
+var n=+prompt("n")
+var count=0;
+for(var i=m;i<=n;i++){
+  if(i%17==0){
+    count+=i
+  }
+}
+console.log(count)
+</script>
+<script id="ch0105/11">
+//给定k（1< k < 100）个正整数，其中每个数都是大于等于1，小于等于10的数。写程序计算给定的k个正整数中，1，5和10出现的次数。
+var count1=0,count5=0,count10=0;
+var n=+prompt("n")
+for(var i=0;i<n;i++){
+  var m=+prompt("m")
+  if(m==1){
+    count1++;
+  }else if(m==5){
+    count5++;
+  }else if(m==10){
+    count10++;
+  }
+}
+console.log(count1,count5,count10)
+</script>
+<script id="ch0105/12">
+/*输出一个整数序列中与指定数字相同的数的个数。
+
+输入
+输入包含2行：
+第1行为N和m，表示整数序列的长度(N <= 100)和指定的数字， 中间用一个空格分开；
+第2行为N个整数，整数之间以一个空格分开。
+输出
+输出为N个数中与m相同的数的个数。*/
+var n=+prompt("n")
+var m=+prompt("m")
+var count=0;
+for(var i=0;i<n;i++){
+  var input=+prompt("input")
+  if(input==m){
+    count++;
+  }
+}
+console.log(count);
+</script>
+<script id="ch0105/13">
+/*给出一个整数a和一个正整数n，求乘方an。*/
+var a=+prompt("a")
+var n=+prompt("n")
+var res=1;
+for(var i=0;i<n;i++){
+  res=res*a
+}
+console.log(res)
+</script>
+<script id="ch0105/14">
+/*输入
+一行，包含两个整数x和n，分别是人口基数和年数，以单个空格分隔。
+输出
+输出最后的人口数，以亿为单位，保留到小数点后四位。1 <= x <= 100, 1 <= n <= 100。
+*/
+var x=+prompt("x")
+var n=+prompt("n")
+for(var i=0;i<n;i++){
+  x*=1.001
+}
+console.log(x.toFixed(4))
+</script>
+<script id="ch0105/15">
+/*描述
+农夫约翰在去年赚了一大笔钱！他想要把这些钱用于投资，并对自己能得到多少收益感到好奇。已知投资的复合年利率为R（0到20之间的整数）。约翰现有总值为M的钱（100到1,000,000之间的整数）。他清楚地知道自己要投资Y年（范围0到400）。请帮助他计算最终他会有多少钱，并输出它的整数部分。数据保证输出结果在32位有符号整数范围内。
+
+输入
+一行包含三个整数R，M，Y，相邻两个整数之间用单个空格隔开。
+输出
+一个整数，即约翰最终拥有多少钱（整数部分）。*/
+var R=+prompt("r")
+var M=+prompt("m")
+var Y=+prompt("y")
+for(var i=0;i<Y;i++){
+  M=M*(1+R/100)
+}
+console.log(M|0)
+</script>
+<script id="ch0105/16">
+/*描述
+某程序员开始工作，年薪N万，他希望在中关村公馆买一套60平米的房子，现在价格是200万，假设房子价格以每年百分之K增长，并且该程序员未来年薪不变，且不吃不喝，不用交税，每年所得N万全都积攒起来，问第几年能够买下这套房子？（第一年年薪N万，房价200万）
+
+输入
+一行，包含两个正整数N（10 <= N <= 50）, K（1 <= K <= 20），中间用单个空格隔开。
+输出
+如果在第20年或者之前就能买下这套房子，则输出一个整数M，表示最早需要在第M年能买下，否则输出Impossible。
+*/
+var n=+prompt("N");
+var k=+prompt("K");
+var p=200;
+var pay=n;
+var m=0;
+for(var i=1;i<=20;i++){
+  if(i!=1){
+  pay+=n
+  p=p*(1+k/100)
+  }
+  if(pay>p){
+    m=i;
+    break;
+  }
+}
+console.log(m)
+</script>
+<script id="ch0105/17">
+/*描述
+菲波那契数列是指这样的数列: 数列的第一个和第二个数都为1，接下来每个数都等于前面2个数之和。
+给出一个正整数k，要求菲波那契数列中第k个数是多少。
+
+输入
+输入一行，包含一个正整数k。（1 <= k <= 46）
+输出
+输出一行，包含一个正整数，表示菲波那契数列中第k个数的大小*/
+var k=+prompt("k")
+var count=0;
+for(var i=0;i<k;i++){
+  var i1,i2;
+  if(i==0||i==1){
+    i1=1;
+    i2=1
+  }else{
+    count=i1+i2
+    i1=i2
+    i2=count
+    /*
+    i2=i1+i2;
+    i1=i2-i1;
+    */
+  }
+}
+console.log(count)
+</script>
+<script id="ch0105/18">
+/*描述
+鸡尾酒疗法，原指“高效抗逆转录病毒治疗”（HAART），由美籍华裔科学家何大一于1996年提出，是通过三种或三种以上的抗病毒药物联合使用来治疗艾 滋病。该疗法的应用可以减少单一用药产生的抗药性，最大限度地抑制病毒的复制，使被破坏的机体免疫功能部分甚至全部恢复，从而延缓病程进展，延长患者生 命，提高生活质量。人们在鸡尾酒疗法的基础上又提出了很多种改进的疗法。为了验证这些治疗方法是否在疗效上比鸡尾酒疗法更好，可用通过临床对照实验的方式 进行。假设鸡尾酒疗法的有效率为x，新疗法的有效率为y，如果y-x大于5%，则效果更好，如果x-y大于5%，则效果更差，否则称为效果差不多。下面给 出n组临床对照实验，其中第一组采用鸡尾酒疗法，其他n-1组为各种不同的改进疗法。请写程序判定各种改进疗法效果如何。
+
+输入
+第一行为整数n（ 1 < n <= 20）；
+其余n行每行两个整数，第一个整数是临床实验的总病例数(小于等于10000)，第二个疗效有效的病例数。
+这n行数据中，第一行为鸡尾酒疗法的数据，其余各行为各种改进疗法的数据。
+输出
+有n-1行输出，分别表示对应改进疗法的效果：
+如果效果更好，输出better；如果效果更差，输出worse；否则输出same
+*/
+var n=+prompt("n")
+var valid=0;
+for(var i=0;i<n;i++){
+  var a=+prompt("a")
+  var v=+prompt("v")
+  if(i==0){
+    valid=+(v/a).toFixed(2)
+  }else{
+    var value=+(v/a).toFixed(2)
+    if(value-valid>0.05){
+      console.log("better")
+    }else if(valid-value>0.05){
+      console.log("worse")
+    }else {
+      console.log("same")
+    }
+  }
+}
+</script>
+<script id="ch0105/19">
+/*救生船从大本营出发，营救若干屋顶上的人回到大本营，屋顶数目以及每个屋顶的坐标 
+和人数都将由输入决定，求出所有人都到达大本营并登陆所用的时间。 
+
+在直角坐标系的原点是大本营，救生船每次从大本营出发，救了人之后将人送回大本营。坐标系中的点代表屋顶，每个屋顶由其位置坐标和其上的人数表 示。救生船每次从大本营出发，以速度50 米/分钟驶向下一个屋顶，达到一个屋顶后，救下其上的所有人，每人上船1 分钟，船原路返回，达到大本营，每人下船0.5 分钟。假设原点与任意一个屋顶的连线不穿过其它屋顶。
+
+输入
+第一行，一个整数，表示屋顶数n。
+接下来依次有n 行输入，每一行上包含两个表示屋顶相对于大本营的平面坐标位置的实数（单位是米）、一个表示人数的整数，数之间以一个空格分
+开。
+输出
+一行，救援需要的总时间，精确到分钟 (向上取整)。*/
+var n=+prompt("n")
+var count=0;
+for(var i=0;i<n;i++){
+  var x=+prompt("x")
+  var y=+prompt("y")
+  var p=+prompt("people")
+  count+=((Math.sqrt(x*x+y*y)/50)*2+1.5*p)
+}
+console.log(Math.ceil(count))
+</script>
+<script id="ch0105/20">
+/*描述
+一球从某一高度落下（整数，单位米），每次落地后反跳回原来高度的一半，再落下。
+编程计算气球在第10次落地时，共经过多少米? 第10次反弹多高？
+
+输入
+输入一个整数h，表示球的初始高度。
+输出
+输出包含两行：
+第1行：到球第10次落地时，一共经过的米数。
+第2行：第10次弹跳的高度。*/
+
+var h=+prompt("h")
+var count=0;
+for(var i=0;i<10;i++){
+  h=h/2
+  count+=h+2*h
+}
+console.log(count,h)
+</script>
+<script id="ch0105/21">
+/*所谓角谷猜想，是指对于任意一个正整数，如果是奇数，则乘3加1，如果是偶数，则除以2，得到的结果再按照上述规则重复处理，最终总能够得到1。如，假定初始整数为5，计算过程分别为16、8、4、2、1。 
+程序要求输入一个整数，将经过处理得到1的过程输出来。*/
+var n=+prompt("n")
+while(n!=1){
+  if(n%2!=0){
+    console.log(n+"*"+3+1+"="+(n*3+1))
+    n=n*3+1
+  }else{
+    console.log(n+"/"+2+"="+(n/2))
+    n=n/2
+  }
+}
+console.log("END")
+</script>
+<script id="ch0105/22">
+/*描述
+津津的零花钱一直都是自己管理。每个月的月初妈妈给津津300元钱，津津会预算这个月的花销，并且总能做到实际花销和预算的相同。
+
+为了让津津学习如何储蓄，妈妈提出，津津可以随时把整百的钱存在她那里，到了年末她会加上20％还给津津。因此津津制定了一个储蓄计划：每个月的月初，在得到妈妈给的零花钱后，如果她预计到这个月的月末手中还会有多于100元或恰好100元，她就会把整百的钱存在妈妈那里，剩余的钱留在自己手中。
+
+例如11月初津津手中还有83元，妈妈给了津津300元。津津预计11月的花销是180元，那么她就会在妈妈那里存200元，自己留下183元。到了11月月末，津津手中会剩下3元钱。
+
+津津发现这个储蓄计划的主要风险是，存在妈妈那里的钱在年末之前不能取出。有可能在某个月的月初，津津手中的钱加上这个月妈妈给的钱，不够这个月的原定预算。如果出现这种情况，津津将不得不在这个月省吃俭用，压缩预算。
+
+现在请你根据2004年1月到12月每个月津津的预算，判断会不会出现这种情况。如果不会，计算到2004年年末，妈妈将津津平常存的钱加上20％还给津津之后，津津手中会有多少钱。
+
+输入
+包括12行数据，每行包含一个小于350的非负整数，分别表示1月到12月津津的预算。
+输出
+包括一行，这一行只包含一个整数。如果储蓄计划实施过程中出现某个月钱不够用的情况，输出-X，X表示出现这种情况的第一个月；否则输出到2004年年末津津手中会有多少钱。*/
+var left=0;
+var n=0;
+var all=true;
+for(var i=0;i<12;i++){
+   var x=+prompt("x")
+  if(300+left-x<0){
+    console.log("-"+(i+1))
+    all=false;
+    break;
+  }else if(300+left-x<100){
+    left=300-x;
+  }else if(300+left-x>=100){
+    n+=(300+left-x)/100|0;
+    left=300+left-x-100*n
+  }
+}
+if(all){
+  console.log(n*100*1.2)
+}
+</script>
+<script id="ch0105/23">
+ var m=+prompt("m")
+ var n=+prompt("n")
+ var arr=[]
+ var p=0
+ for(var i=0;i<n;i++){
+   var t=+prompt("t")
+   arr.push(t)
+ }
+ arr.sort((a,b)=>a-b)
+ for(var i=0;i<arr.length;i++){
+     m=m-arr[i];
+     if(m<0){
+        p=i+1;
+        break;
+     }
+ }
+ console.log(n-p)
+</script>
+<script id="ch0105/24">
+var n=+prompt("n")
+var h=0;
+for(var i=0;i<n;i++){
+  var a=+prompt("a")
+  var b=+prompt("b")
+  if(a>=90&&a<=140&&b>=60&&b<=90){
+    h++;
+  }else{
+    h=0;
+  }
+}
+console.log(h)
+</script>
+<script id="ch0105/25">
+for(var i=49;i<9*9*9-1;i++){
+  var seven1=i%7;
+  var seven2=(i-seven1)/7%7;
+  var seven3=(i-seven1)/7/7;
+
+  var nine1=i%9;
+  var nine2=(i-nine1)/9%9;
+  var nine3=(i-nine1)/9/9
+
+  if(seven1==nine3&&seven2==nine2&&seven3==nine1){
+    var seven=""+seven3+seven2+seven1
+    var nine=""+nine3+nine2+nine1
+    console.log(i,seven,nine)
+    break;
+  }
+}
+</script>
+<script id="ch0105/26">
+var n=+prompt("n")
+var res=0;
+for(var i=0;i<n;i++){
+  var num=+prompt("num");
+  var a=num%10
+  var b=(num-a)/10%10
+  var c=((num-a)/10-b)/10%10
+  var d=((num-a)/10-b)/10/10|0
+  if(a-d-c-b>0){
+    res++;
+  }
+}
+console.log(res)
+</script>
+<script id="ch0105/27">
+var k=+prompt("k")
+var s=0;
+var n=1;
+while(s<k){
+  s=s+1/n
+  n++;
+}
+console.log(n)
+</script>
+<script id="ch0105/28">
+var n=+prompt("n")
+if(n<10){
+  console.log(n)
+}else{
+while(n>0){
+   left=n%10
+   n=(n-left)/10
+   console.log(left)
+}
+}
+</script>
+<script id="ch0105/29">
+var n=+prompt("n")
+if(n<0){
+  var negative=true;
+  n=-n
+}else{
+  negative=false;
+}
+var arr=[];
+//var sum=0
+while(n>0){
+  var left=n%10
+  n=(n-left)/10
+  arr.push(left)
+  //或者sum=sum*10+left;
+}
+var res=+arr.join("")
+if(negative){
+  console.log(-res)
+}else{
+  console.log(res)
+}
+</script>
+<script id="ch0105/30">
+var m=+prompt("m")
+var k=+prompt("k")
+var count=0;
+if(m%19==0){
+  while(m>0){
+    var left=m%10;
+    m=(m-left)/10;
+    if(left==3){
+      count++
+    }
+  }
+  if(count==k){
+    console.log("YES")
+  }else{
+    console.log("NO")
+  }
+}else{
+  console.log("NO")
+}
+</script>
+<script id="ch0105/31">
+
+</script>
+<script id="ch0105/32">
+var n=+prompt("n")
+var p=1;
+var q=2;
+var count=q/p
+for(var i=1;i<n;i++){
+   var p1=q
+   q=p+q
+   count=count+q/p1
+}
+console.log(count.toFixed(4))
+//迭代斐波那契数列然后求和
+</script>
+<script id="ch0105/33">
+var n=+prompt("n")
+var count=0;
+for(var i=1;i<=n;i++){
+  count+=(-1)**(i-1)*(1/i)
+}
+console.log(count.toFixed(4))
+</script>
+<script id="ch0105/34">
+var n=+prompt("n")
+var count=0;
+for(var i=1;i<=n;i++){
+  var res=1;
+  var temp=i
+  while(temp>=1){
+    res=res*temp;
+    temp--
+  }
+  count+=res;
+}
+console.log(count)
+</script>
+<script id="ch0105/35">
+var n=+prompt("n")
+var count=1;
+for(var i=1;i<=n;i++){
+  var res=1;
+  var temp=i;
+  while(temp>=1){
+    res=res*temp;
+    temp--
+  }
+  count+=1/res
+}
+console.log(count.toFixed(10))
+</script>
+<script id="ch0105/36">
+var x=+prompt("x")
+var n=+prompt("n")
+var count=0;
+for(var i=0;i<=n;i++){
+  var res=1;
+  var temp=i;
+  while(temp>=1){
+    res*=x
+    temp--
+  }
+  count+=res
+}
+console.log(count.toFixed(2))
+</script>
+<script id="ch0106/37">
+ var m=+prompt("m")
+ var n=+prompt("n")
+ var x=+prompt("x")
+ var count=0;
+ var init=m;
+ while(m>0){
+   count++
+   if(count==n){
+     n++
+     count=0
+   }
+   if(n>m||m/n>x){
+     console.log(n)
+     break;
+   }
+   if(m==1){
+     m=init
+   }
+ }
+</script>
+<script id="ch0106/38">
+
+</script>
+<script id="ch0106/39">
+var n=+prompt("n")
+var count=0;
+var isSeven=false;
+/*for(var i=1;i<=n;i++){
+  var temp=i;
+  if(temp%7==0){
+    continue;
+  }else{
+    while(temp>0){
+      left=temp%10;
+      temp=(temp-left)/10
+      if(left==7){
+         isSeven=true;
+         break;
+      }
+    }
+    if(!isSeven){
+      count+=i*i;
+    }
+    isSeven=false;
+  }
+}*/
+for(var i=1;i<=n;i++){
+  if(i%7==0||i%10==7||Math.floor(i/10)==7){
+    isSeven=true;
+  }
+  if(!isSeven){
+    count+=i*i
+  }
+  isSeven=false;
+}
+console.log(count)
+</script>
+<script id="ch0105/40">
+var n=+prompt("n")
+var count=0;
+for(var i=1;i<=n;i++){
+  var temp=i;
+  while(temp>0){
+    left=temp%10;
+    temp=(temp-left)/10;
+    if(left==1){
+      count++
+    }
+  }
+}
+console.log(count)
+</script>
+<script id="ch0105/41">
+var l=+prompt("L")
+var r=+prompt("r")
+var count=0;
+for(var i=l;i<=r;i++){
+  var temp=i;
+  while(temp>0){
+    left=temp%10;
+    temp=(temp-left)/10;
+    if(left==2){
+      count++
+    }
+  }
+}
+console.log(count)
+</script>
+<script id="ch0105/42">
+var w=+prompt("w")
+var h=+prompt("h")
+var shape=prompt("shape")
+var fill=+prompt("fill")
+for(var i=0;i<h;i++){
+  if(fill==0){
+    if(i==0||i==h-1){
+      var s=""
+      for(var j=0;j<w;j++){
+        s+=shape
+      }
+      console.log(s)
+    }else{
+      s=""
+      for(var j=0;j<w;j++){
+        if(j==0||j==w-1){
+          s+=shape;
+        }else{
+          s+=""
+        }
+      }
+      console.log(s)
+    }
+  }else{
+    s=""
+    for(var j=0;j<w;j++){
+      s+=shape
+    }
+    console.log(s)
+  }
+}
+</script>
+<script id="ch0105/43">
+var n=+prompt("n")
+for(var i=2;i<=n;i++){
+  var temp=i;
+  if(n%temp==0){
+    var other=n/temp;
+    var count=temp
+    while(count>1){
+      if(temp%count==0&&temp){
+
+      }
+    }
+  }
+}
+
+</script>
+<script id="7">
+var n=+prompt("n")
+var isSeven=false;
+  var temp=n;
+  if(temp%7==0){
+    console.log("YES")
+  }else{
+    while(temp>0){
+      left=temp%10;
+      temp=(temp-left)/10
+      if(left==7){
+         isSeven=true;
+      }
+    }
+    if(!isSeven){
+      console.log("NO")
+    }else{
+      console.log("YES")
+    }
+  }
+</script>
+<script id="sort">
+  var a=+prompt("a")
+  var b=+prompt("b")
+  var c=+prompt("c")
+  if(a>b&&a>c){
+    if(b>c){
+      console.log(c,b,a)
+    }else{
+      console.log(b,c,a)
+    }
+  }else if(b>a&&b>c){
+    if(a>c){
+      console.log(c,a,b)
+    }else{
+      console.log(a,c,b)
+    }
+  }else if(c>a&&c>b){
+    if(a>b){
+      console.log(b,a,c)
+    }else{
+      console.log(a,b,c)
+    }
+  }
+</script>
+<script id="narcissistic">
+var n=prompt("n")
+var num=n|0
+var temp=n|0
+var m=n.length
+var count=0
+var mod=0;
+while(num>0){
+  mod=num%10;
+  num=(num-mod)/10
+  count+=mod**m
+}
+if(count==temp){
+  console.log("YES")
+}else{
+  console.log("NO")
+}
+</script>
+<script id="narcissistics">
+for(var i=1;i<=1000;i++){
+  var temp=i;
+  var count=0;
+  var s=""+i;
+  while(temp>0){
+   var mod=temp%10;
+    temp=(temp-mod)/10
+    count+=mod**s.length;
+  }
+  if(count==i){
+  console.log(i)
+  }
+}
+</script>
+<script id="palindrom">
+  var n=+prompt("")
+  var s=""+n
+  if(s.split("").reverse().join("")==s){
+    console.log("YES")
+  }else{
+    console.log("NO")
+  }
+
+</script>
+<script id="weekday">
+
+</script>
+<script id="complete-number">
+  var n=+prompt("n")
+  var temp=n;
+  var count=0;
+  for(i=1;i<n;i++){
+    if(n%i==0){
+      temp-=i
+    }
+  }
+  if(temp==0){
+    console.log("YES")
+  }else{
+    console.log("NO")
+  }
+</script>
+<script id="complete-numbers">
+  for(i=1;i<=1000;i++){
+    var temp=i
+    for(j=1;j<i;j++){
+      if(i%j==0){
+        temp-=j
+      }
+    }
+    if(temp==0){
+      console.log(i)
+    }
+  }
+</script>
+<script id="itob">
+var n=+prompt("n")
+var str=n+""
+ console.log(str)
+</script>
+<script id="sqrt">
+var n=+prompt("n")
+var g=n;
+while(Math.abs(g*g-n)>0.000001){
+  g=(g+n/g)/2
+}
+console.log(g)
+</script>
+<script id="prime">
+  var n=+prompt("n")
+  var isPrime=function(n){
+  if(n==1){
+    return false
+  }
+  var temp=n-1
+  while(temp>1){
+    if(n%temp==0){
+      return false
+    }
+    temp--
+  }
+  return true
+}
+/*var isPrime=function(n){
+  if(n<2){
+    return false
+  }
+  half=n>>2
+  for(var i=2;i<=half;i++){
+    if(n%i==0){
+      return false
+    }
+  }
+  return true
+}*/
+if(isPrime(n)){
+  console.log("YES")
+}else{
+  console.log("NO")
+}
+
+</script>
