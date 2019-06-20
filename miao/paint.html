@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>画图</title>
+  <style>
+    canvas {
+      border: 2px solid #f0f;
+      display: block;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <canvas width="400" height="300"></canvas>
+</body>
+<script>
+  var canvas = document.querySelector('canvas')
+  canvas.style.imageRendering = 'pixelated'
+  var ctx = canvas.getContext('2d')
+
+  function dot(x, y, color = 'black') {
+    ctx.fillStyle = color
+    ctx.fillRect(x, y, 1, 1)
+  }
+  /**
+   * YOUR TASK
+画图的题：
+画一条实线
+画一条一个实点一个空点的虚线
+画一条两个实点两个空点的虚线
+画一条三个实点两个空点的虚线
+画一条45度的斜线
+画一条跨越画布左上角和右下角的对角线
+画一个空心矩形
+画一个实心矩形
+画一个rgb色彩空间的某一面
+画一个空心的圆
+画一个实心的圆
+画一个大小合适的sin(x)的图像
+   */
+</script>
+<script>
+  // YOUR CODE GOES BELOW
+  for(var x=10;x<=200;x++){
+      y=10;
+      dot(x,y)
+  }
+  for(var x=10;x<=200;x++){
+    y=15;
+    if(x%2==0){
+      dot(x,y,"black")
+    }else{
+      dot(x,y,"transparent")
+    }
+  }
+  for(var x=10;x<=200;x++){
+    y=20;
+    if((x-10)%4==0||(x-11)%4==0){
+      dot(x,y,"black")
+    }else if((x-12)%4==0||(x-13)%4==0){
+      dot(x,y,"transparent")
+    }
+  }
+  for(var x=10;x<=200;x++){
+    y=25;
+    if((x-10)%5==0||(x-11)%5==0||(x-12)%5==0){
+      dot(x,y,"black")
+    }else if((x-13)%5==0||(x-14)%5==0){
+      dot(x,y,"transparent")
+    }
+  }
+  for(var x=0;x<=400;x++){
+    y=x;
+    dot(x,y,"blue")
+  }
+  for(var x=0;x<=400;x++){
+    y=3/4*x
+    dot(x,y,"blue")
+  }
+  for(var x=200;x<=300;x++){
+    if(x==200||x==300){
+      for(y=10;y<=200;y++){
+        dot(x,y,"red")
+      }
+    }else{
+      dot(x,10,"red")
+      dot(x,200,"red")
+    }
+  }
+  for(var x=300;x<=400;x++){
+    for(y=10;y<=200;y++){
+      dot(x,y,"lime")
+    }
+  }
+  for(var x=30;x<=70;x++){
+    y1=Math.sqrt(400-(x-50)*(x-50))+50
+    y2=50-Math.sqrt(400-(x-50)*(x-50))
+    dot(x,y1,"pink")
+    dot(x,y2,"pink")
+  }
+  for(var x=80;x<=120;x++){
+    y3=Math.sqrt(400-(x-100)*(x-100))+50
+    y4=50-Math.sqrt(400-(x-100)*(x-100))
+    for(y=y4;y<=y3;y++){
+      dot(x,y,"purple")
+    }
+  }
+  for(var x=0;x<=400;x++){
+    var pi=3.1415926
+    y=5*Math.sin(x
+    /5)+150
+    dot(x,y,"violet")
+  }
+
+  for(var y=200,g=0,b=0;y<=350;y++){
+    var r=0;
+    for(var x=50;x<=200;x++){
+        r++,
+        dot(x,y,"rgb("+r+","+g+","+b+")")
+    }
+    g++
+  }
+
+  
+
+</script>
+</html>
