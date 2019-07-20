@@ -1035,7 +1035,7 @@ for(var i=0;i<=n;i++){
 }
 console.log(count.toFixed(2))
 </script>
-<script id="ch0106/37">
+<script id="ch0105/37">
  var m=+prompt("m")
  var n=+prompt("n")
  var x=+prompt("x")
@@ -1059,7 +1059,7 @@ console.log(count.toFixed(2))
 <script id="ch0106/38">
 
 </script>
-<script id="ch0106/39">
+<script id="ch0105/39">
 var n=+prompt("n")
 var count=0;
 var isSeven=false;
@@ -1259,7 +1259,9 @@ for(var i=1;i<=1000;i++){
   }else{
     console.log("NO")
   }
-
+/*
+1.知道数字的宽度，
+2.
 </script>
 <script id="weekday">
 
@@ -1337,5 +1339,43 @@ if(isPrime(n)){
 }else{
   console.log("NO")
 }
-
+</script>
+<script id="LoopingaTriangle">
+  function LoopingaTraingle(n){
+    for(var i=1;i<=n;i++){
+      var s=""
+      for(var j=0;j<i;j++){
+        s+="#"
+      }
+      console.log(s)
+    }
+}
+LoopingaTraingle(7);
+</script>
+<script id="FizzBuzz">
+function FizzBuzz(n){
+  for(i=1;i<=n;i++){
+    if(i%15==0){/*最重要的先判断共同的倍数*/
+      console.log("FizzBuzz")
+    }else if(i%5==0){
+      console.log("Buzz")
+    }else if(i%3==0){
+      console.log("Fizz")
+    }else{
+      console.log(i)
+    }
+  }
+}
+FizzBuzz(100)
+</script>
+<script id="checkboard">
+  var s1="# # # #"
+  var s2=" # # # #"
+  for(var i=0;i<8;i++){
+    if(i%2==0){
+      console.log(s1)
+    }else{
+      console.log(s2)
+    }
+  }
 </script>

@@ -113,11 +113,11 @@
     dot(x,y,"violet")
   }
 
-  for(var y=200,g=0,b=0;y<=350;y++){
-    var r=0;
+  for(var y=200,g=(y-200)*256/150;y<=350;y++){
+    var r=(x-50)*256/150;
     for(var x=50;x<=200;x++){
         r++,
-        dot(x,y,"rgb("+r+","+g+","+b+")")
+        dot(x,y,"rgb("+r+","+g+",255)")
     }
     g++
   }
