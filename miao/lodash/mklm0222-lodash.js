@@ -54,7 +54,9 @@ var mklm0222={
     }
   },
   unary:function(f){
-    return ary(f,1)
+    return function(...args){
+      return f(...args.slice(0,1))
+    }
   },
   /**
    * 创建一个函数，调用func时，this绑定到创建的新函数，把参数作为数组传入，类似于 Function#apply. 
