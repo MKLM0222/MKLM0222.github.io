@@ -92,7 +92,7 @@ var mklm0222={
    * (Array): 返回一个过滤值后的新数组。
    */
   difference:function(ary,...values){
-    ary.filter(item=>{values.every(val=>!val.includes(item))})
+    return ary.filter(item=>values.every(val=>!val.includes(item)))
 },
   differenceBy:function(){
     
@@ -121,6 +121,65 @@ var mklm0222={
       }else{
         return arr.slice(n).reverse()
       }
+  },
+  isMatch:function(obj,src){
+     if(obj===src){
+       return true
+     }
+      for(var key in src){
+        if(typeof src[key]=="object"&&src[key]!=null){
+          if(!isMatch(obj[key],src[key])){
+            return false
+          }
+        }else{
+          if(obj[key]!=src[key]){
+            return false
+          }
+        } 
+      }
+      return true
+  },
+  matches:function(src){
+      return function(obj){
+        return mklm0222.isMatch(obj,src)
+      }
+  },
+  matchesProperty:function(path,value){
+    return function(obj){
+       return mklm0222.isEqual(get(obj,path),value)
+    }
+  },
+  property:function(path){
+    return function(obj){
+      return mklm0222.get(obj,path)
+    }
+  },
+  toPath:function(str){
+     return str.split(/\.|\[|\]./)
+  },
+  get:function(obj,path,defaultValue){
+     if(typeof path=="string"){
+        path=toPath(path)
+     }
+     for(var i=0;i<path.length;i++){
+        if(obj==undefined){
+          return defaultValue
+        }
+         obj=obj[path[i]]
+     }
+     return obj
+  },
+  iteratee:function(value){
+     if(typeof value=="string"){
+       return mklm0222.property(value)
+     }
+     if(typeof value=="object"){
+       return mklm0222.matches(value)
+     }
+     if(Array.isArray(value)){
+       return mklm0222.matchesProperty(value)
+     }
+     return value
   },
   dropRightWhile:function(){
     
