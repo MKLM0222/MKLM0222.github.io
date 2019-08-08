@@ -91,26 +91,39 @@ var mklm0222={
    * [values] (...Array): 排除的值。
    * (Array): 返回一个过滤值后的新数组。
    */
-  difference:function(ary,values){
-    var res=[]
-    for(var item of ary){
-      if(values.indexOf(item)<0){
-        res.push(item)
-      }
-    }
-    return res
+  difference:function(ary,...values){
+    ary.filter(item=>{values.every(val=>!val.includes(item))})
 },
   differenceBy:function(){
-
+    
   },
-  drop:function(){
-
+  /**
+   * 创建一个切片数组，去除array前面的n个元素。（n默认值为1。）
+   * array (Array): 要查询的数组。
+   * [n=1] (number): 要去除的元素个数。
+   * (Array): 返回array剩余切片。
+   */
+  drop:function(arr,n){
+     if(n==undefined){
+       return arr.slice(1)
+     }else if(n>arr.length){
+        return []
+     }else{
+       return arr.slice(n)
+     }
   },
-  dropRight:function(){
-
+  dropRight:function(arr,n){
+      arr=arr.reverse()
+      if(n==undefined){
+        return arr.slice(1).reverse()
+      }else if(n>arr.length){
+         return []
+      }else{
+        return arr.slice(n).reverse()
+      }
   },
   dropRightWhile:function(){
-
+    
   },
   dropWhile:function(){
 
