@@ -94,7 +94,7 @@ var mklm0222={
   difference:function(ary,...values){
     return ary.filter(item=>values.every(val=>!val.includes(item)))
 },
-  differenceBy:function(){
+  differenceBy:function differenceBy(){
     
   },
   /**
@@ -122,7 +122,7 @@ var mklm0222={
         return arr.slice(n).reverse()
       }
   },
-  isMatch:function(obj,src){
+  isMatch:function isMatch(obj,src){
      if(obj===src){
        return true
      }
@@ -159,7 +159,7 @@ var mklm0222={
   },
   get:function(obj,path,defaultValue){
      if(typeof path=="string"){
-        path=toPath(path)
+        path=mklm0222.toPath(path)
      }
      for(var i=0;i<path.length;i++){
         if(obj==undefined){
@@ -195,6 +195,26 @@ var mklm0222={
   },
   findLastIndex:function(){
 
+  },
+  isEqual:function isEqual(value,other){
+      if(typeof value!="object"&&typeof other!="object"){
+        return value===other?true:false
+      }else if(typeof value=="object"&&value!="null"){
+            if(typeof other!="object"){
+              return false
+            }
+            var valKey=Object.keys(value)
+            var othKey=Object.keys(value)
+            if(valKey.length!=othKey.length){
+              return false
+            }
+            for(var key in value){
+              if(!isEqual(value[key],other[key])){
+                return false
+              }
+            }
+            return true
+      }
   }
 
 };
