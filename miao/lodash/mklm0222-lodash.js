@@ -187,8 +187,12 @@ var mklm0222={
   dropWhile:function(){
 
   },
-  fill:function(){
-
+  fill:function fill(array,value,start=0,end){
+      end=end?end:array.length
+      for(var i=start;i<end;i++){
+         array[i]=value
+      }
+      return array
   },
   findIndex:function(){
 
