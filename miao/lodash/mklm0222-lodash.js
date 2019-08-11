@@ -219,6 +219,17 @@ var mklm0222={
             }
             return true
       }
+  },
+  flatten:function flatten(args){
+    var res=[]
+    for(var item of args){
+        if(Array.isArray(item)){
+            res.push(...item)
+        }else{
+            res.push(item)
+        }
+    }
+    return res
   }
 
 };
