@@ -240,6 +240,27 @@ var mklm0222={
         }
     }
     return res
- }
+ },
+ flattenDepth:function flattenDepth(ary,depth=1,currDepth=0,res=[]){
+  for(var item of ary){
+      if(Array.isArray(item)){
+          if(currDepth==depth){
+              res.push(item)
+          }else{
+            flattenDepth(item,depth,currDepth+1,res)
+          }
+      }else{
+        res.push(item)
+      }
+  }
+  return res
+},
+ fromPairs:function fromPairs(values){
+  var res={}
+      for(item of values){
+          res[item[0]]=item[1]
+      }
+  return res
+}
 
 };
