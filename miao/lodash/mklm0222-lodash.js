@@ -261,6 +261,16 @@ var mklm0222={
           res[item[0]]=item[1]
       }
   return res
-}
-
+},
+head:function head(ary){
+  return ary?ary[0]:undefined
+},
+indexOf:function indexOf(ary,value,fromIndex=0){
+     for(var i=fromIndex;i<ary.length;i++){
+       if(ary[i]===value){
+         return i
+       }
+     }
+     return -1
+    }
 };
