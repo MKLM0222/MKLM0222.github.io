@@ -272,5 +272,8 @@ indexOf:function indexOf(ary,value,fromIndex=0){
        }
      }
      return -1
-    }
+    },
+initial:function initial(ary){
+  return ary.slice(0,ary.length-1)
+   }
 };
