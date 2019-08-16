@@ -275,5 +275,46 @@ indexOf:function indexOf(ary,value,fromIndex=0){
     },
 initial:function initial(ary){
   return ary.slice(0,ary.length-1)
-   }
+   },
+  isArray:function isArray(ary){
+    if(Object.prototype.toString.call(ary)=="[object Array]"){
+      return true
+    }else{
+      return false
+    }
+  },
+  isBoolean:function isBoolean(bool){
+    Object.prototype.toString.call(ary)=="[object Boolean]"?true:false
+  },
+  join:function join(array,seperator){
+    var result=""
+    for(var i=0;i<array.length;i++){
+      if(i!=array.length-1){
+       result+=array[i]+seperator
+      }else{
+        result+=array[i]
+      }
+    }
+    return result
+  },
+  intersection:function intersection(...arrs){
+     let obj={}
+     let res=[]
+     for(let item of arrs){
+       var curr=mklm0222.flattenDeep(item)
+       for(let it of curr){
+         if(obj[it]){
+            obj[it]+=1
+         }else{
+           obj[it]=1
+         }
+       }
+     }
+     for(let key in obj){
+        if(obj[key]==arrs.length){
+          res.push(Number(key))
+        }
+     }
+     return res 
+  }
 };
