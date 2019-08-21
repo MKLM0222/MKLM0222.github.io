@@ -316,5 +316,34 @@ initial:function initial(ary){
         }
      }
      return res 
+  },
+  last:function last(ary){
+      return ary[ary.length-1]
+  },
+  lastIndexOf:function lastIndexOf(ary,val,start){
+        if(start==undefined)start=ary.length-1
+        for(var i=start;i>=0;i--){
+          if(val===ary[i]){
+            return i
+          }
+        }
+        return -1
+  },
+  reverse:function reverse(ary){
+    var res=[]
+    for(var i=ary.length-1;i--;i>=0){
+      res.push(ary[i])
+    }
+    return ary
+  },
+  sortedIndex:function sortedIndex(ary,value){
+      ary=ary.sorted((a,b)=>a-b)
+      if(arr[0]>=value)return 0
+      if(arr[arr.length-1]<value)return ary.length-1
+      for(var i=0;i<ary.length;i++){
+        if(ary[i]<=value&&ary[i+1]>=value){
+          return i+1
+        }
+      }
   }
 };
