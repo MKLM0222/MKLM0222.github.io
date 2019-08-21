@@ -290,7 +290,7 @@ initial:function initial(ary){
     var result=""
     for(var i=0;i<array.length;i++){
       if(i!=array.length-1){
-       result+=array[i]+seperator
+       result+=String(array[i])+seperator
       }else{
         result+=array[i]
       }
@@ -334,10 +334,10 @@ initial:function initial(ary){
     for(var i=ary.length-1;i--;i>=0){
       res.push(ary[i])
     }
-    return ary
+    return res
   },
   sortedIndex:function sortedIndex(ary,value){
-      ary=ary.sorted((a,b)=>a-b)
+      ary=ary.sort((a,b)=>a-b)
       if(arr[0]>=value)return 0
       if(arr[arr.length-1]<value)return ary.length-1
       for(var i=0;i<ary.length;i++){

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+   body{
+     width:700px;
+     height:500px;
+     position:relative;
+   }
+   .dot{
+     width:4px;
+     height:4px;
+     border-radius:50%;
+     position:absolute;
+   }
+  
+  </style>
+</head>
+<body>
+  <input type="color" class="colorInput">
+  <script>
+  var input=document.querySelector("input")
+  var body=document.querySelector("body")
+  /*body.addEventListener("click",function(e){
+      var dot=document.createElement("div")
+      dot.className="dot"
+      dot.style.backgroundColor=input.value
+      dot.style.left=e.pageX+"px"
+      dot.style.top=e.pageY+"px"
+      body.appendChild(dot)
+  })*/
+  function dot(e){
+    var dot=document.createElement("div")
+      dot.className="dot"
+      dot.style.backgroundColor=input.value
+      dot.style.left=e.pageX+"px"
+      dot.style.top=e.pageY+"px"
+      body.appendChild(dot)
+  }
+  body.addEventListener("mousedown",function(e){
+    body.addEventListener("mousemove",dot)
+  })
+  body.addEventListener("click",dot)
+  body.addEventListener("mouseup",function(e){
+    body.removeEventListener("mousemove",dot)
+    })
+  </script>
+</body>
+</html>
