@@ -267,13 +267,13 @@ head:function head(ary){
 },
 indexOf:function indexOf(ary,value,fromIndex=0){
      for(var i=fromIndex;i<ary.length;i++){
-       if(ary[i]===value){
+       if(mklm0222.sameValueZero(ary[i],value)){
          return i
        }
      }
      return -1
     },
-initial:function initial(ary){
+  initial:function initial(ary){
   return ary.slice(0,ary.length-1)
    },
   isArray:function isArray(ary){
@@ -323,7 +323,7 @@ initial:function initial(ary){
   lastIndexOf:function lastIndexOf(ary,val,start){
         if(start==undefined)start=ary.length-1
         for(var i=start;i>=0;i--){
-          if(val===ary[i]){
+          if(mklm0222.sameValueZero(ary[i],val)){
             return i
           }
         }
@@ -331,19 +331,60 @@ initial:function initial(ary){
   },
   reverse:function reverse(ary){
     var res=[]
-    for(var i=ary.length-1;i--;i>=0){
+    for(var i=ary.length-1;i>=0;i--){
       res.push(ary[i])
     }
     return res
   },
   sortedIndex:function sortedIndex(ary,value){
       ary=ary.sort((a,b)=>a-b)
-      if(arr[0]>=value)return 0
-      if(arr[arr.length-1]<value)return ary.length-1
+      if(ary[0]>=value)return 0
+      if(ary[ary.length-1]<value)return ary.length-1
       for(var i=0;i<ary.length;i++){
         if(ary[i]<=value&&ary[i+1]>=value){
           return i+1
         }
       }
+  },
+  sameValueZero:function sameValueZero(x,y){
+    if(x===0&&y===-0){
+      return true
+    }else if(x===-0&&y===0){
+      return true
+    }else{
+      return Object.is(x,y)
+    }
+  },
+  union:function union(...arys){
+       var res=[]
+       for(var i=0;i<arys.length;i++){
+         for(var j=0;j<arys[i].length;j++)
+         if(!res.includes(arys[i][j])){
+           res.push(arys[i][j])
+         }
+       }
+       return res
+  },
+  unionBy:function unionBy(...args){
+      var last=args[args.length-1]
+      var res=[]
+      if(!mklm0222.isArray(last)){
+           var predicate=mklm0222.iteratee(last)
+           args.pop()
+        }
+      var arr=mklm0222.flattenDeep(args)
+      for(var i=0;i<arr.length;i++){
+        var isFound=false
+        for(var j=0;j<res.length;i++){
+          if(mklm0222.isEqual(predicate(arr[i]),predicate(res[j]))){
+            isFound=true
+            break;
+          }
+        }
+        if(!isFound){
+          res.push(arr[i])
+        }
+      }
+      return res
   }
 };
