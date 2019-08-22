@@ -386,5 +386,16 @@ indexOf:function indexOf(ary,value,fromIndex=0){
         }
       }
       return res
+  },
+  pull:function pull(ary,...args){
+      for(var i=0;i<args.length;i++){
+         for(var j=0;j<ary.length;j++){
+           if(mklm0222.sameValueZero(ary[j],args[i])){
+             ary.splice(j,1)
+             j--;
+           }
+         }
+      }
+      return ary
   }
 };
