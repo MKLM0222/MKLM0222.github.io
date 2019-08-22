@@ -375,7 +375,7 @@ indexOf:function indexOf(ary,value,fromIndex=0){
       var arr=mklm0222.flattenDeep(args)
       for(var i=0;i<arr.length;i++){
         var isFound=false
-        for(var j=0;j<res.length;i++){
+        for(var j=0;j<res.length;j++){
           if(mklm0222.isEqual(predicate(arr[i]),predicate(res[j]))){
             isFound=true
             break;
