@@ -397,5 +397,33 @@ indexOf:function indexOf(ary,value,fromIndex=0){
          }
       }
       return ary
+  },
+  uniq:function uniq(ary){
+     let res=[]
+     for(let i=0;i<ary.length;i++){
+       if(!res.includes(ary[i])){
+          res.push(ary[i])
+       }
+     }
+     return res
+  },
+  uniqBy:function uniqBy(ary,iteratee){
+      if(iteratee){
+        var predicate=mklm0222.iteratee(iteratee)
+      }
+      let res=[]
+      for(let i=0;i<ary.length;i++){
+        var isFound=false;
+        for(let j=0;j<res.length;j++){
+          if(mklm0222.isEqual(predicate(ary[i]),predicate(res[j]))){
+             isFound=true
+             break;
+          }
+        }
+        if(!isFound){
+           res.push(ary[i])
+        }
+      }
+      return res
   }
 };
