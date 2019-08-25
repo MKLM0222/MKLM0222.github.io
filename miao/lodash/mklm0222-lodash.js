@@ -94,8 +94,31 @@ var mklm0222={
   difference:function(ary,...values){
     return ary.filter(item=>values.every(val=>!val.includes(item)))
 },
-  differenceBy:function differenceBy(){
-    
+  differenceBy:function differenceBy(ary,...values){
+         var last=values[values.length-1]
+         var res=[]
+         if(!mklm0222.isArray(last)){
+           var predicate=mklm0222.iteratee(last)
+           values.pop()
+         }
+         if(predicate){
+             values=mklm0222.flattenDeep(values)
+             for(var i=0;i<ary.length;i++){
+               var isFound=false
+               for(var j=0;j<values.length;j++){
+                 if(mklm0222.isEqual(predicate(ary[i]),predicate(values[j]))){
+                    isFound=true
+                    break;
+                 }
+               }
+               if(!isFound){
+                 res.push(ary[i])
+               }
+             }
+         }else{
+           return mklm0222.difference(ary,...values)
+         }
+        return res
   },
   /**
    * 创建一个切片数组，去除array前面的n个元素。（n默认值为1。）
@@ -425,5 +448,14 @@ indexOf:function indexOf(ary,value,fromIndex=0){
         }
       }
       return res
+  },
+  without:function without(ary,...values){
+       var res=[]
+       for(var i=0;i<ary.length;i++){
+           if(!values.includes(ary[i])){
+             res.push(ary[i])
+           }
+       }
+       return res
   }
 };
