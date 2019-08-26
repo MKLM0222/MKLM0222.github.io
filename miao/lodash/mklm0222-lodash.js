@@ -93,7 +93,7 @@ var mklm0222={
    */
   difference:function(ary,...values){
     return ary.filter(item=>values.every(val=>!val.includes(item)))
-},
+  },
   differenceBy:function differenceBy(ary,...values){
          var last=values[values.length-1]
          var res=[]
@@ -204,8 +204,16 @@ var mklm0222={
      }
      return value
   },
-  dropRightWhile:function(){
-    
+  dropRightWhile:function dropRightWhile(ary,predicate){
+     predicate=mklm0222.iteratee(predicate)
+     let res = ary.slice();
+     for (let i = ary.length - 1; i >= 0; i--) {
+        if (!predicate(ary[i], i, ary)) {
+            break;
+        }
+        res.pop();
+    }
+    return res;
   },
   dropWhile:function(){
 
@@ -284,16 +292,16 @@ var mklm0222={
           res[item[0]]=item[1]
       }
   return res
-},
-head:function head(ary){
-  return ary?ary[0]:undefined
-},
-indexOf:function indexOf(ary,value,fromIndex=0){
-     for(var i=fromIndex;i<ary.length;i++){
-       if(mklm0222.sameValueZero(ary[i],value)){
-         return i
-       }
-     }
+  },
+  head:function head(ary){
+    return ary?ary[0]:undefined
+  },
+  indexOf:function indexOf(ary,value,fromIndex=0){
+      for(var i=fromIndex;i<ary.length;i++){
+        if(mklm0222.sameValueZero(ary[i],value)){
+          return i
+        }
+      }
      return -1
     },
   initial:function initial(ary){
@@ -457,5 +465,12 @@ indexOf:function indexOf(ary,value,fromIndex=0){
            }
        }
        return res
+  },
+  unzip:function unzip(ary){
+       return ary[0].map((_,index)=>{
+            return ary.map((curr)=>{
+                 return curr[index]
+            })
+       })
   }
 };
