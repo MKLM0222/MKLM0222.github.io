@@ -169,7 +169,7 @@ var mklm0222={
   },
   matchesProperty:function(path,value){
     return function(obj){
-       return mklm0222.isEqual(get(obj,path),value)
+       return mklm0222.isEqual(mklm0222.get(obj,path),value)
     }
   },
   property:function(path){
@@ -196,11 +196,11 @@ var mklm0222={
      if(typeof value=="string"){
        return mklm0222.property(value)
      }
+     if(Array.isArray(value)){
+      return mklm0222.matchesProperty(...value)
+    }
      if(typeof value=="object"){
        return mklm0222.matches(value)
-     }
-     if(Array.isArray(value)){
-       return mklm0222.matchesProperty(value)
      }
      return value
   },
@@ -215,8 +215,16 @@ var mklm0222={
     }
     return res;
   },
-  dropWhile:function(){
-
+  dropWhile:function dropWhile(ary,predicate){
+     predicate=mklm0222.iteratee(predicate)
+     let res=ary.slice()
+     for(let i=0;i<ary.length;i++){
+        if(!predicate(ary[i])){
+          break;
+        }
+        res.shift()
+     }
+    return res
   },
   fill:function fill(array,value,start=0,end){
       end=end?end:array.length
@@ -472,5 +480,23 @@ var mklm0222={
                  return curr[index]
             })
        })
+  },
+  xor:function xor(...ary){
+      let arr=mklm0222.flattenDeep(ary)
+      let map={}
+      let res=[]
+      for(var i=0;i<arr.length;i++){
+        if(!map[arr[i]]){
+          map[arr[i]]=1
+        }else{
+          map[arr[i]]+=1
+        }
+      }
+      for(let key in map){
+          if(map[key]==1){
+            res.push(Nmber(key))
+          }
+      }
+      return res
   }
 };
