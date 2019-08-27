@@ -494,7 +494,7 @@ var mklm0222={
       }
       for(let key in map){
           if(map[key]==1){
-            res.push(Nmber(key))
+            res.push(Number(key))
           }
       }
       return res
