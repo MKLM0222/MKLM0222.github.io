@@ -244,8 +244,17 @@ var mklm0222={
         }
      return -1
   },
-  findLastIndex:function(){
-
+  findLastIndex:function findLastIndex(ary,predicate,fromIndex){
+      if(fromIndex==undefined){
+        fromIndex=ary.length-1
+      }
+      predicate=mklm0222.iteratee(predicate)
+      for(var i=fromIndex;i>=0;i--){
+        if(predicate(ary[i])){
+          return i
+        }
+      }
+      return -1
   },
   isEqual:function isEqual(value,other){
       if(typeof value!="object"&&typeof other!="object"){
