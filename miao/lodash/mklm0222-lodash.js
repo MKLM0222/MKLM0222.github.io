@@ -508,7 +508,7 @@ var mklm0222={
       return res
   },
   zip:function zip(...arys){
-    arys[0].map((_,index)=>{
+    return arys[0].map((_,index)=>{
        return arys.map((value)=>{
          return value[index]
        })
