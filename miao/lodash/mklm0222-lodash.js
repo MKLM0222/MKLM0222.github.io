@@ -233,8 +233,16 @@ var mklm0222={
       }
       return array
   },
-  findIndex:function(){
-
+  findIndex:function findIndex(ary,predicate,fromIndex=0){
+        if(predicate){
+           predicate=mklm0222.iteratee(predicate)
+        }
+        for(var i=fromIndex;i<ary.length;i++){
+          if(predicate(ary[i])){
+            return i
+          }
+        }
+     return -1
   },
   findLastIndex:function(){
 
@@ -498,5 +506,12 @@ var mklm0222={
           }
       }
       return res
+  },
+  zip:function zip(...arys){
+    arys[0].map((_,index)=>{
+       return arys.map((value)=>{
+         return value[index]
+       })
+    })
   }
 };
