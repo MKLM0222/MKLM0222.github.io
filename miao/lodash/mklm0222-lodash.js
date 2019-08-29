@@ -522,5 +522,27 @@ var mklm0222={
          return value[index]
        })
     })
-  }
+  },
+  countBy:function countBy(ary,predicate){
+    predicate = mklm0222.iteratee(predicate)
+    var map = {}
+    ary.forEach(item => {
+        let key = predicate(item)
+        if (!map[key]) {
+            map[key] = 1
+        }else{
+            map[key] +=1
+        }
+     })
+      return map
+   },
+   every:function every(ary,predicate){
+     predicate=mklm0222.iteratee(predicate)
+     for(var i=0;i<ary.length;i++){
+       if(!predicate(ary[i],i,index)){
+           return false
+       }
+     }
+     return true
+   }
 };
