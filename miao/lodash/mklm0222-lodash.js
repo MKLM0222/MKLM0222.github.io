@@ -544,5 +544,23 @@ var mklm0222={
        }
      }
      return true
+   },
+   filter:function filter(ary,predicate){
+     predicate=mklm0222.iteratee(predicate)
+     let res=[]
+     for(var i=0;i<ary.length;i++){
+       if(predicate(ary[i])){
+            res.push(ary[i])
+       }
+     }
+   },
+   find:function find(ary,predicate,fromIndex=0){
+     predicate=mklm0222.iteratee(predicate)
+     let res=[]
+     for(var i=fromIndex;i<ary.length;i++){
+       if(predicate(ary[i])){
+            return ary[i]
+       }
+     }
    }
 };
