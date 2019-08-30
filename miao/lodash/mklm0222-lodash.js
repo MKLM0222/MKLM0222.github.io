@@ -553,6 +553,7 @@ var mklm0222={
             res.push(ary[i])
        }
      }
+     return res
    },
    find:function find(ary,predicate,fromIndex=0){
      predicate=mklm0222.iteratee(predicate)
