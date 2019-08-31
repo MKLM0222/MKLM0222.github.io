@@ -557,11 +557,40 @@ var mklm0222={
    },
    find:function find(ary,predicate,fromIndex=0){
      predicate=mklm0222.iteratee(predicate)
-     let res=[]
      for(var i=fromIndex;i<ary.length;i++){
        if(predicate(ary[i])){
             return ary[i]
        }
      }
-   }
+   },
+   flatMap:function flatMap(ary,predicate){
+     predicate=mklm0222.iteratee(predicate)
+     let res=[]
+     for(var i=0;i<ary.length;i++){
+        res.push(predicate(ary[i]))
+     }
+     return mklm0222.flatten(res)
+    },
+  flatMapDeep:function flatMapDeep(ary,predicate){
+    predicate=mklm0222.iteratee(predicate)
+    let res=[]
+    for(let i=0;i<ary.length;i++){
+      res.push(predicate(ary[i]))
+    }
+    return mklm0222.flattenDeep(res)
+  },
+  flatMapDepth:function flatMapDepth(ary,predicate,depth){
+    predicate=mklm0222.iteratee(predicate)
+    let res=[]
+    for(let i=0;i<ary.length;i++){
+      res.push(predicate(ary[i]))
+    }
+    return mklm0222.flattenDepth(res,depth)
+  },
+  forEach:function forEach(ary,predicate){
+    predicate=mklm0222.iteratee(predicate)
+    for(var i=0;i<ary.length;i++){
+        predicate(ary[i])
+    }
+  }
 };
