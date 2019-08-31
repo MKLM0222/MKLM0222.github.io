@@ -587,10 +587,21 @@ var mklm0222={
     }
     return mklm0222.flattenDepth(res,depth)
   },
-  forEach:function forEach(ary,predicate){
+  forEach:function forEach(collection,predicate){
     predicate=mklm0222.iteratee(predicate)
-    for(var i=0;i<ary.length;i++){
-        predicate(ary[i])
+    if(mklm0222.isArray(collection)){
+      for(let i=0;i<collection.length;i++){
+        if(predicate(collection[i])===false){
+          break;
+        }
+      }
+    }else{
+      for(let key in collection){
+        if(predicate(collection[key])==false){
+          break;
+        }
+      }
     }
+    return collection
   }
 };
