@@ -603,5 +603,25 @@ var mklm0222={
       }
     }
     return collection
+  },
+  groupBy:function groupBy(collection,predicate){
+    predicate=mklm0222.iteratee(predicate)
+    let map={}
+    for(var i=0;i<collection.length;i++){
+        if(map[predicate(collection[i])]){
+           map[predicate(collection[i])].push(collection[i])
+        }else{
+          map[predicate(collection[i])]=[collection[i]]
+        }
+    }
+    return map
+  },
+  keyBy:function keyBy(collection,predicate){
+    predicate=mklm0222.iteratee(predicate)
+    let map={}
+    for(var i=0;i<collection.length;i++){
+         map[predicate(collection[i])]=collection[i]
+    }
+    return map
   }
 };
