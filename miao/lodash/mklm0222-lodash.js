@@ -626,6 +626,7 @@ var mklm0222={
   },
   map:function map(collection,predicate){
     var res=[]
+    predicate=mklm0222.iteratee(predicate)
       if(mklm0222.isArray(collection)){
         for(var i=0;i<collection.length;i++){
              res.push(predicate(collection[i]))
@@ -639,6 +640,7 @@ var mklm0222={
   },
   partition:function partition(collection,predicate){
     var res=[[],[]]
+    predicate=mklm0222.iteratee(predicate)
     for(var i=0;i<collection.length;i++){
        if(predicate(collection[i])){
          res[0].push(collection[i])
