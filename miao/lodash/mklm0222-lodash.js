@@ -623,5 +623,29 @@ var mklm0222={
          map[predicate(collection[i])]=collection[i]
     }
     return map
+  },
+  map:function map(collection,predicate){
+    var res=[]
+      if(mklm0222.isArray(collection)){
+        for(var i=0;i<collection.length;i++){
+             res.push(predicate(collection[i]))
+        }
+      }else{
+        for(var key in collection){
+           res.push(predicate(collection[key]))
+        }
+      }
+      return res
+  },
+  partition:function partition(collection,predicate){
+    var res=[[],[]]
+    for(var i=0;i<collection.length;i++){
+       if(predicate(collection[i])){
+         res[0].push(collection[i])
+       }else{
+         res[1].push(collection[i])
+       }
+    }
+    return res
   }
 };
