@@ -627,7 +627,7 @@ var mklm0222={
   map:function map(collection,predicate){
     var res=[]
     predicate=mklm0222.iteratee(predicate)
-      if(mklm0222.isArray(collection)){
+      if(Array.isArray(collection)){
         for(var i=0;i<collection.length;i++){
              res.push(predicate(collection[i]))
         }
