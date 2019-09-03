@@ -649,5 +649,19 @@ var mklm0222={
        }
     }
     return res
+  },
+  reduce:function reduce(collect,predicate,accumulator){
+      predicate=mklm0222.iteratee(predicate)
+      for(var i=0;i<collect.length;i++){
+            accumulator=predicate(accumulator,collect[i],i)
+      }
+      return accumulator
+  },
+  reduceRight:function reduceRight(collect,predicate,accumulator){
+      predicate = mklm0222.iteratee(predicate)
+      for(var i=collect.length-1;i>=0;i--){
+        accumulator = predicate(accumulator,collect[i],i)
+      }
+      return accumulator
   }
 };
