@@ -663,5 +663,22 @@ var mklm0222={
         accumulator = predicate(accumulator,collect[i],i)
       }
       return accumulator
+  },
+  reject:function reject(collect,predicate) {
+    predicate = mklm0222.iteratee(predicate)
+    let res = []
+    for(var i = 0; i < collect.length; i++){
+        if (!predicate(collect[i])){
+           res.push(collect[i])
+        }
+    }
+    return res
+  },
+  size:function size(collection) {
+     if(mklm0222.isArray(collection)){
+       return collection.length
+     }else{
+       return Object.keys(collection).length
+     }
   }
 };
