@@ -340,7 +340,7 @@ var mklm0222={
     }
   },
   isBoolean:function isBoolean(bool){
-    Object.prototype.toString.call(ary)=="[object Boolean]"?true:false
+    Object.prototype.toString.call(bool)=="[object Boolean]"?true:false
   },
   join:function join(array,seperator){
     var result=""
@@ -680,5 +680,42 @@ var mklm0222={
      }else{
        return Object.keys(collection).length
      }
+  },
+  some:function some(collection,predicate) {
+    predicate = mklm0222.iteratee(predicate)
+    for(var i=0;i<collection.length;i++){
+      if(predicate(collection[i])){
+         return true
+      }
+    }
+    return false
+  },
+  sortBy:function sortBy(collection,predicate){
+     predicate = mklm0222.iteratee(predicate)
+     for(var i=collection.length-2;i>=0;i--){
+       swapped=false
+       for(var j=0;j<i;j++){
+         if(predicate(collection[i])>predicate(collection[i+1])){
+            [collection[i],collection[i+1]]=[collection[i+1],collection[i]]
+            swapped=true
+         }
+       }
+       if(!swapped){
+         break
+       }
+     }
+     return collection
+  },
+  isArguments:function isArguments(value){
+   let type=Object.prototype.toString.call(value)
+   if(type=="[object Arguments]"){
+     return true
+   }else{
+     return false
+   }
+  },
+  isDate:function isDate(value){
+   return  Object.prototype.toString.call(value)=="[object Date]"?true:false
   }
+
 };
