@@ -722,6 +722,15 @@ var mklm0222={
   },
   isNaN:function isNaN(value) {
     return mklm0222.isNumber(value)&&value!==+value
+  },
+  isNil:function isNil(value) {
+    return value===null||value === undefined 
+  },
+  isNull:function isNull(value) {
+    return value === null
+  },
+  isObject:function isObject(value) {
+    return Object.prototype.toString.call(value)
   }
   
 };
