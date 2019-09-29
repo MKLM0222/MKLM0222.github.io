@@ -716,6 +716,12 @@ var mklm0222={
   },
   isDate:function isDate(value){
    return  Object.prototype.toString.call(value)=="[object Date]"?true:false
+  },
+  isNumber:function isNumber(value){
+    return Object.prototype.toString.call(value)=="[object Number]"
+  },
+  isNaN:function isNaN(value) {
+    return mklm0222.isNumber(value)&&value!==+value
   }
-
+  
 };
